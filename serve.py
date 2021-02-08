@@ -5,8 +5,11 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-	result = json.loads(open('result.json','r').read())
-
+	record = json.loads(open('result.json','r').read())
+	result = []
+	for key,recs in record.items():
+		recs['tanggal'] = key
+		result.append(recs)
 	return jsonify(result)
 
 
