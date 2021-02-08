@@ -8,7 +8,7 @@ def index():
 	record = json.loads(open('result.json','r').read())
 	result = []
 	for key,recs in record.items():
-		recs['tanggal'] = key
+		recs['Date'] = key
 		result.append(recs)
 	return jsonify(result)
 
