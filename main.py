@@ -39,6 +39,6 @@ if not date in result.keys():
 		if not description.text in result[date].keys():
 			result[date][description.text] = int(case.text.replace('.',''))
 
-with open(dir_path+'/result.json', 'w') as fle:
-	fle.write(json.dumps(result, indent=4))
+	with open(dir_path+'/result.json', 'w') as fle:
+		fle.write(json.dumps(result, indent=4))
 
