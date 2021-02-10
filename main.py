@@ -1,10 +1,13 @@
 import requests
 from bs4 import BeautifulSoup
 import json
+import os
 import dateparser
 
+dir_path = os.path.dirname(os.path.realpath(__file__))
+
 try:
-	result = json.loads(open('result.json','r').read())
+	result = json.loads(open(dir_path+'/resultd.json','r').read())
 except:
 	result = {}
 
@@ -36,6 +39,6 @@ if not date in result.keys():
 		if not description.text in result[date].keys():
 			result[date][description.text] = int(case.text.replace('.',''))
 
-with open('result.json', 'w') as fle:
+with open(dir_path+'/resultd.json', 'w') as fle:
 	fle.write(json.dumps(result, indent=4))
 
