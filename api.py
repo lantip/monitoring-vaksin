@@ -27,7 +27,7 @@ def index():
 		result.append(rcd)
 
 	return jsonify({
-			'last_updated': mtime.strftime('%d-%m-%Y %H:%M:%S'),
+			'last_updated': mtime.isoformat(),
 			'monitoring': result
 		})
 
