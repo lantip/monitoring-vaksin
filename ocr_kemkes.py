@@ -7,8 +7,8 @@ import os, re, dateparser
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
 def sanitize(string):
-    string = re.search(r'\d+',string).group()
-    return string
+    string = re.findall(r'\d+',string)
+    return ''.join(string)
 
 def extract(lines, idx):
     try:
