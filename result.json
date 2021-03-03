@@ -227,10 +227,10 @@
                 "sudah_vaksin2": 680
             },
             "lansia": {
-                "total_vaksinasi1": 397771,
-                "total_vaksinasi2": 683,
-                "sudah_vaksin1": 301939,
-                "sudah_vaksin2": 680
+                "total_vaksinasi1": 142335,
+                "total_vaksinasi2": 0,
+                "sudah_vaksin1": 138728,
+                "sudah_vaksin2": 0
             }
         },
         "cakupan": {

@@ -43,7 +43,8 @@ def ocr_date(jpg):
     for lin in linsa:
         if len(lin.strip()) > 1:
             linesa.append(lin)   
-
+    #print([{k:v} for k,v in enumerate(lines)])
+    #print([{k:v} for k,v in enumerate(linesa)])
     try:
         target = int(lines[2].replace('.',''))
     except:
@@ -76,10 +77,16 @@ def ocr_date(jpg):
             #result['tahapan_vaksinasi']['petugas_publik']['tertunda_vaksin1'] = int(linesa[22].split()[1].replace('.',''))
             #result['tahapan_vaksinasi']['petugas_publik']['tertunda_vaksin2'] = int(linesa[22].split()[2].replace('.',''))
             result['tahapan_vaksinasi']['lansia'] = {}
-            result['tahapan_vaksinasi']['lansia']['total_vaksinasi1'] = int(linesa[20].split()[1].replace('.',''))
-            result['tahapan_vaksinasi']['lansia']['total_vaksinasi2'] = int(linesa[20].split()[2].replace('.',''))
-            result['tahapan_vaksinasi']['lansia']['sudah_vaksin1'] = int(linesa[21].split()[2].replace('.',''))
-            result['tahapan_vaksinasi']['lansia']['sudah_vaksin2'] = int(linesa[21].split()[3].replace('.',''))
+            result['tahapan_vaksinasi']['lansia']['total_vaksinasi1'] = int(linesa[23].split()[1].replace('.',''))
+            if len(linesa[23].split()) > 2:
+                result['tahapan_vaksinasi']['lansia']['total_vaksinasi2'] = int(linesa[23].split()[2].replace('.',''))
+            else:
+                result['tahapan_vaksinasi']['lansia']['total_vaksinasi2'] = 0
+            result['tahapan_vaksinasi']['lansia']['sudah_vaksin1'] = int(linesa[24].split()[2].replace('.',''))
+            if len(linesa[24].split()) > 3:
+                result['tahapan_vaksinasi']['lansia']['sudah_vaksin2'] = int(linesa[24].split()[3].replace('.',''))
+            else:
+                result['tahapan_vaksinasi']['lansia']['sudah_vaksin2'] = 0
             #result['tahapan_vaksinasi']['lansia']['tertunda_vaksin1'] = int(linesa[22].split()[1].replace('.',''))
             #result['tahapan_vaksinasi']['lansia']['tertunda_vaksin2'] = int(linesa[22].split()[2].replace('.',''))
             result['cakupan'] = {}
