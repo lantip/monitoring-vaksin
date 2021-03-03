@@ -22,7 +22,7 @@ def index():
 	for key,recs in record.items():
 		rcd = {}
 		for k,v in recs.items():
-			rcd[sanitize(k)] = v
+			rcd[sanitize(k.replace('_', ' '))] = v
 		rcd['date'] = key
 		result.append(rcd)
 
