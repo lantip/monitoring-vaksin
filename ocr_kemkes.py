@@ -33,10 +33,10 @@ def ocr_date(jpg):
             lines.append(lin)    
 
     im_invert = ImageOps.invert(im)
-    #enhancera = ImageEnhance.Contrast(im_invert)
-    #im_outputa = enhancera.enhance(1)
-    #imga = im_outputa.convert('LA')
-    imga = im_invert.convert('LA')
+    enhancera = ImageEnhance.Contrast(im_invert)
+    im_outputa = enhancera.enhance(1)
+    imga = im_outputa.convert('LA')
+    #imga = im_invert.convert('LA')
     dataa = image_to_string(imga)
     linsa = dataa.split('\n')
     linesa = []
@@ -72,30 +72,51 @@ def ocr_date(jpg):
             result['tahapan_vaksinasi']['petugas_publik'] = {}
             result['tahapan_vaksinasi']['petugas_publik']['total_vaksinasi1'] = int(linesa[20].split()[1].replace('.',''))
             result['tahapan_vaksinasi']['petugas_publik']['total_vaksinasi2'] = int(linesa[20].split()[2].replace('.',''))
-            result['tahapan_vaksinasi']['petugas_publik']['sudah_vaksin1'] = int(linesa[21].split()[2].replace('.',''))
+            result['tahapan_vaksinasi']['petugas_publik']['sudah_vaksin1'] = int(linesa[21].split()[2].replace('A','4').replace('T','7').replace('.',''))
             result['tahapan_vaksinasi']['petugas_publik']['sudah_vaksin2'] = int(linesa[21].split()[3].replace('.',''))
             #result['tahapan_vaksinasi']['petugas_publik']['tertunda_vaksin1'] = int(linesa[22].split()[1].replace('.',''))
             #result['tahapan_vaksinasi']['petugas_publik']['tertunda_vaksin2'] = int(linesa[22].split()[2].replace('.',''))
             result['tahapan_vaksinasi']['lansia'] = {}
-            result['tahapan_vaksinasi']['lansia']['total_vaksinasi1'] = int(linesa[23].split()[1].replace('.',''))
-            if len(linesa[23].split()) > 2:
-                result['tahapan_vaksinasi']['lansia']['total_vaksinasi2'] = int(linesa[23].split()[2].replace('.',''))
+            
+            if 'Lansia' in linesa[25]:
+                if len(linesa[25].split()) > 2:
+                    result['tahapan_vaksinasi']['lansia']['total_vaksinasi1'] = int(linesa[25].split()[1].replace('.',''))
+                    result['tahapan_vaksinasi']['lansia']['total_vaksinasi2'] = int(linesa[25].split()[2].replace('.',''))
             else:
-                result['tahapan_vaksinasi']['lansia']['total_vaksinasi2'] = 0
-            result['tahapan_vaksinasi']['lansia']['sudah_vaksin1'] = int(linesa[24].split()[2].replace('.',''))
-            if len(linesa[24].split()) > 3:
-                result['tahapan_vaksinasi']['lansia']['sudah_vaksin2'] = int(linesa[24].split()[3].replace('.',''))
-            else:
-                result['tahapan_vaksinasi']['lansia']['sudah_vaksin2'] = 0
+                if len(linesa[23].split()) > 1:
+                    result['tahapan_vaksinasi']['lansia']['total_vaksinasi1'] = int(linesa[23].split()[2].replace('.',''))
+                else:
+                    result['tahapan_vaksinasi']['lansia']['total_vaksinasi1'] = int(linesa[23].split()[1].replace('.',''))
+                if len(linesa[23].split()) > 3:
+                    result['tahapan_vaksinasi']['lansia']['total_vaksinasi2'] = int(linesa[23].split()[3].replace('.',''))
+                else:
+                    result['tahapan_vaksinasi']['lansia']['total_vaksinasi2'] = 0
+                try:
+                    result['tahapan_vaksinasi']['lansia']['sudah_vaksin1'] = int(linesa[24].split()[2].replace('.',''))
+                except:
+                    pass
+                if len(linesa[24].split()) > 3:
+                    result['tahapan_vaksinasi']['lansia']['sudah_vaksin2'] = int(linesa[24].split()[3].replace('.',''))
+                else:
+                    result['tahapan_vaksinasi']['lansia']['sudah_vaksin2'] = 0
             #result['tahapan_vaksinasi']['lansia']['tertunda_vaksin1'] = int(linesa[22].split()[1].replace('.',''))
             #result['tahapan_vaksinasi']['lansia']['tertunda_vaksin2'] = int(linesa[22].split()[2].replace('.',''))
             result['cakupan'] = {}
-            result['cakupan']['vaksinasi1'] = lines[29].split()[0]
-            result['cakupan']['vaksinasi2'] = lines[29].split()[1]
-            result['cakupan']['sdm_kesehatan_vaksinasi1'] = lines[31].split()[1]
-            result['cakupan']['sdm_kesehatan_vaksinasi2'] = lines[31].split()[2]
-            result['cakupan']['petugas_publik_vaksinasi1'] = lines[33].split()[1]
-            result['cakupan']['petugas_publik_vaksinasi2'] = lines[33].split()[2]
+            if lines[29] == 'Vaksinasi-1 Vaksinasi-2':
+                result['cakupan']['vaksinasi1'] = lines[30].split()[0]
+                result['cakupan']['vaksinasi2'] = lines[30].split()[1]
+                result['cakupan']['sdm_kesehatan_vaksinasi1'] = lines[32].split()[1]
+                result['cakupan']['sdm_kesehatan_vaksinasi2'] = lines[32].split()[2]
+                result['cakupan']['petugas_publik_vaksinasi1'] = lines[34].split()[1]
+                result['cakupan']['petugas_publik_vaksinasi2'] = lines[34].split()[2]
+
+            else:
+                result['cakupan']['vaksinasi1'] = lines[29].split()[0]
+                result['cakupan']['vaksinasi2'] = lines[29].split()[1]
+                result['cakupan']['sdm_kesehatan_vaksinasi1'] = lines[31].split()[1]
+                result['cakupan']['sdm_kesehatan_vaksinasi2'] = lines[31].split()[2]
+                result['cakupan']['petugas_publik_vaksinasi1'] = lines[33].split()[1]
+                result['cakupan']['petugas_publik_vaksinasi2'] = lines[33].split()[2]
             #result['cakupan']['lansia_vaksinasi1'] = lines[31].split()[1]
             #result['cakupan']['lansia_vaksinasi2'] = lines[31].split()[2]
             result['date'] = dateparser.parse(lines[8]).strftime('%Y-%m-%d')
