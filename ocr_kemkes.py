@@ -107,8 +107,8 @@ def ocr_date(jpg):
                 result['cakupan']['vaksinasi2'] = lines[30].split()[1]
                 result['cakupan']['sdm_kesehatan_vaksinasi1'] = lines[32].split()[1]
                 result['cakupan']['sdm_kesehatan_vaksinasi2'] = lines[32].split()[2]
-                result['cakupan']['petugas_publik_vaksinasi1'] = lines[34].split()[1]
-                result['cakupan']['petugas_publik_vaksinasi2'] = lines[34].split()[2]
+                result['cakupan']['petugas_publik_vaksinasi1'] = lines[34].split()[2]
+                result['cakupan']['petugas_publik_vaksinasi2'] = lines[34].split()[3]
 
             else:
                 result['cakupan']['vaksinasi1'] = lines[29].split()[0]
