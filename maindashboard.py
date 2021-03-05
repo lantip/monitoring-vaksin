@@ -50,6 +50,6 @@ if not today_result['date'] in result.keys():
         if key != 'date':
             if not key in result[today_result['date']].keys():
                 result[today_result['date']][key] = val
-
-    with open(dir_path+'/result.json', 'w') as fle:
-        fle.write(json.dumps(result, indent=4))
+    print(json.dumps(result, indent=4))
+   # with open(dir_path+'/result.json', 'w') as fle:
+   #     fle.write(json.dumps(result, indent=4))
