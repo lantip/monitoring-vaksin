@@ -1634,12 +1634,56 @@
         "cakupan": {
             "vaksinasi1": "21.40%",
             "vaksinasi2": "9.95%",
-            "sdm_kesehatan_vaksinasi1": "98.147",
+            "sdm_kesehatan_vaksinasi1": "98.14%",
             "sdm_kesehatan_vaksinasi2": "88.07%",
             "petugas_publik_vaksinasi1": "31.58%",
             "petugas_publik_vaksinasi2": "14.19%",
             "lansia_vaksinasi1": "7.99%",
             "lansia_vaksinasi2": "1.21%"
+        }
+    },
+    "2021-04-05": {
+        "total_sasaran_vaksinasi": 40349049,
+        "sasaran_vaksinasi_sdmk": 1468764,
+        "sasaran_vaksinasi_petugas_publik": 17327167,
+        "sasaran_vaksinasi_lansia": 21553118,
+        "vaksinasi1": 8772081,
+        "vaksinasi2": 4149587,
+        "tahapan_vaksinasi": {
+            "sdm_kesehatan": {
+                "total_vaksinasi1": 1442812,
+                "total_vaksinasi2": 1295762,
+                "sudah_vaksin1": 1442812,
+                "sudah_vaksin2": 1295762,
+                "tertunda_vaksin1": 151984,
+                "tertunda_vaksin2": 6688
+            },
+            "petugas_publik": {
+                "total_vaksinasi1": 5576617,
+                "total_vaksinasi2": 2554067,
+                "sudah_vaksin1": 5576617,
+                "sudah_vaksin2": 2554067,
+                "tertunda_vaksin1": 117673,
+                "tertunda_vaksin2": 5611
+            },
+            "lansia": {
+                "total_vaksinasi1": 1752652,
+                "total_vaksinasi2": 299758,
+                "sudah_vaksin1": 1752652,
+                "sudah_vaksin2": 299758,
+                "tertunda_vaksin1": 36051,
+                "tertunda_vaksin2": 323
+            }
+        },
+        "cakupan": {
+            "vaksinasi1": "21.74%",
+            "vaksinasi2": "10.28%",
+            "sdm_kesehatan_vaksinasi1": "98.23%",
+            "sdm_kesehatan_vaksinasi2": "88.22%",
+            "petugas_publik_vaksinasi1": "32.18%",
+            "petugas_publik_vaksinasi2": "14.74%",
+            "lansia_vaksinasi1": "8.13%",
+            "lansia_vaksinasi2": "1.39%"
         }
     }
 }
