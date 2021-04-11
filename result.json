@@ -1905,5 +1905,49 @@
             "lansia_vaksinasi1": "9.37%",
             "lansia_vaksinasi2": "2.73%"
         }
+    },
+    "2021-04-11": {
+        "total_sasaran_vaksinasi": 40349049,
+        "sasaran_vaksinasi_sdmk": 1468764,
+        "sasaran_vaksinasi_petugas_publik": 17327167,
+        "sasaran_vaksinasi_lansia": 21553118,
+        "vaksinasi1": 10049541,
+        "vaksinasi2": 5101921,
+        "tahapan_vaksinasi": {
+            "sdm_kesehatan": {
+                "total_vaksinasi1": 1453701,
+                "total_vaksinasi2": 1311259,
+                "sudah_vaksin1": 1453701,
+                "sudah_vaksin2": 1311259,
+                "tertunda_vaksin1": 148805,
+                "tertunda_vaksin2": 6641
+            },
+            "petugas_publik": {
+                "total_vaksinasi1": 6564802,
+                "total_vaksinasi2": 3193198,
+                "sudah_vaksin1": 6564802,
+                "sudah_vaksin2": 3193198,
+                "tertunda_vaksin1": 128973,
+                "tertunda_vaksin2": 6447
+            },
+            "lansia": {
+                "total_vaksinasi1": 2030311,
+                "total_vaksinasi2": 597464,
+                "sudah_vaksin1": 2030311,
+                "sudah_vaksin2": 597464,
+                "tertunda_vaksin1": 40679,
+                "tertunda_vaksin2": 894
+            }
+        },
+        "cakupan": {
+            "vaksinasi1": "24.90%",
+            "vaksinasi2": "12.64%",
+            "sdm_kesehatan_vaksinasi1": "98.97%",
+            "sdm_kesehatan_vaksinasi2": "89.28%",
+            "petugas_publik_vaksinasi1": "37.89%",
+            "petugas_publik_vaksinasi2": "18.43%",
+            "lansia_vaksinasi1": "9.42%",
+            "lansia_vaksinasi2": "2.77%"
+        }
     }
 }
